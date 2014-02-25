@@ -30,10 +30,10 @@
 					if(!file_exists($userID)) mkdir($userID,0777);
 					chdir($userID);				
 					chdir("/var/www/Account");
-					$ImageHost="InvoiceImage/confirm/".$Section."/".$userID."/".$row_catalog[0].$subindex.".jpg";
+					$ImageHost="InvoiceImage/confirm/".$Section."/".$userID."/".$row_catalog[0].$subindex.".".pathinfo($row[0],PATHINFO_EXTENSION);
 					copy($row[0],$ImageHost);
 					unlink($row[0]);
-					mysql_query("update account set Image='".$row_catalog[0].$subindex.".jpg',ImageHost='$ImageHost' where accountID='$accountID' and catalog='".($i+1)."' and ImageHost='$row[0]'");	
+					mysql_query("update account set Image='".$row_catalog[0].$subindex.".".pathinfo($row[0],PATHINFO_EXTENSION)."',ImageHost='$ImageHost' where accountID='$accountID' and catalog='".($i+1)."' and ImageHost='$row[0]'");	
 				}
 			}
 		}

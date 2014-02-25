@@ -40,9 +40,9 @@ else
 			chdir($Section);
 			if(!file_exists($userID))
 				mkdir($userID,0777);			
-			$ImageHost[]="/var/www/Account/InvoiceImage/unconfirm/".$Section."/".$userID."/".$i.".jpg";
+			$ImageHost[]="/var/www/Account/InvoiceImage/unconfirm/".$Section."/".$userID."/".$i.".".pathinfo($Image[$i],PATHINFO_EXTENSION);
 			move_uploaded_file($_FILES[$str]["tmp_name"],$ImageHost[$i]);
-			$ImageHost[$i]="InvoiceImage/unconfirm/".$Section."/".$userID."/".$i.".jpg";
+			$ImageHost[$i]="InvoiceImage/unconfirm/".$Section."/".$userID."/".$i.".".pathinfo($Image[$i],PATHINFO_EXTENSION);
 		}
 		else
 		{

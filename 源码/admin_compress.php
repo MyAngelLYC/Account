@@ -53,7 +53,7 @@
 						$account_row=mysql_fetch_row($account_result);
 						chdir("/var/www/Account");							
 						$source = "/var/www/Account/".$account_row[10];							
-						$dest = $dir."/".$account_row[4]."_".$account_row[0]."_".$account_row[1].".jpg";
+						$dest = $dir."/".$account_row[4]."_".$account_row[0]."_".$account_row[1].".".pathinfo($source,PATHINFO_EXTENSION);
 						//echo $source." ".$dest."<br>";
 						copy($source,$dest);
 						chmod($dest,0777);
